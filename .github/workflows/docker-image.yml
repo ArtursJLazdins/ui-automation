@@ -33,8 +33,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "${{github.job}} started on ${{matrix.env}}"
-      - run: |- 
-        docker-compose up
-        bash send_notification.sh “{{github.job}} {{matrix.env}}” $?
+      - run: |
+          docker-compose up
+          bash send_notification.sh “{{github.job}} {{matrix.env}}” $?
 
 
