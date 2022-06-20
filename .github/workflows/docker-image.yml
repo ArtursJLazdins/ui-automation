@@ -35,6 +35,7 @@ jobs:
       - run: echo "${{github.job}} started on ${{matrix.env}}"
       - run: |
           docker create network test-automation-setup
+          docker build -t artursjlazdins/mvn_tests
           docker-compose up
           bash send_notification.sh “{{github.job}} {{matrix.env}}” $?
 
